@@ -470,48 +470,48 @@ function createnotification(id){
 
 
 
-//----------------------------Collect----------------------------------
+// //----------------------------Collect----------------------------------
 
-{
-	var genUserID = "";
-	var isNewUser = false;
-	var isUnique = false;
-	chrome.storage.local.get(["CODERID"]).then((result) => {
-		genUserID = result.CODERID;
-		// console.log(genUserID);
-		if(localStorage.getItem("CODERID") === null)
-		{
-			isNewUser = true;
-			localStorage.setItem("CODERID",genUserID);
-		}else{
-			genUserID = localStorage.getItem("CODERID");
-		}
-		var currDay = new Date();
-		var year = currDay.getFullYear();
-		var month = String(currDay.getMonth() + 1).padStart(2, '0');
-		var day = String(currDay.getDate()).padStart(2, '0'); 
-		var currDay = `${year}-${month}-${day}`;
-		if(localStorage.getItem("currDay") === null || localStorage.getItem("currDay") != currDay)
-		{
-			isUnique = true;
-			localStorage.setItem("currDay",currDay);
-		}
+// {
+// 	var genUserID = "";
+// 	var isNewUser = false;
+// 	var isUnique = false;
+// 	chrome.storage.local.get(["CODERID"]).then((result) => {
+// 		genUserID = result.CODERID;
+// 		// console.log(genUserID);
+// 		if(localStorage.getItem("CODERID") === null)
+// 		{
+// 			isNewUser = true;
+// 			localStorage.setItem("CODERID",genUserID);
+// 		}else{
+// 			genUserID = localStorage.getItem("CODERID");
+// 		}
+// 		var currDay = new Date();
+// 		var year = currDay.getFullYear();
+// 		var month = String(currDay.getMonth() + 1).padStart(2, '0');
+// 		var day = String(currDay.getDate()).padStart(2, '0'); 
+// 		var currDay = `${year}-${month}-${day}`;
+// 		if(localStorage.getItem("currDay") === null || localStorage.getItem("currDay") != currDay)
+// 		{
+// 			isUnique = true;
+// 			localStorage.setItem("currDay",currDay);
+// 		}
 
-		fetch("https://extensions-info-api.vercel.app/api/collect", {
-		method: "POST",
-		body: JSON.stringify({
-			"extension": "CPCalendar",
-			"isNewUser": isNewUser,
-			"userID": genUserID,
-			"isUnique": isUnique,
-			"day": currDay
-		}),
-		headers: {
-			"Content-type": "application/json; charset=UTF-8"
-		}
-		});
-   });
-}
+// 		fetch("https://extensions-info-api.vercel.app/api/collect", {
+// 		method: "POST",
+// 		body: JSON.stringify({
+// 			"extension": "CPCalendar",
+// 			"isNewUser": isNewUser,
+// 			"userID": genUserID,
+// 			"isUnique": isUnique,
+// 			"day": currDay
+// 		}),
+// 		headers: {
+// 			"Content-type": "application/json; charset=UTF-8"
+// 		}
+// 		});
+//    });
+// }
 
 
-//--------------------------------------------------------------------
+// //--------------------------------------------------------------------
