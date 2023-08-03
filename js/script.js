@@ -289,8 +289,8 @@ function render() {
 	if (tableItem === ``) {
 		calendertable.innerHTML = `
 		<div class="emptyAlarm">
-		Empty Section<br>
-		Contest details not found!
+		No Contests Today<br>
+		It's God's Day 
 		</div>
 	`
 	}
@@ -467,10 +467,8 @@ function createnotification(id){
 		]
 	});
 }
-// alert("Welcome Back");
 
 
-//  chrome.alarms.create("https://developer.chrome.com/docs/extensions/reference/", { when:new Date('Sun Dec 04 2022 08:43:31 GMT+0530 (India Standard Time)').getTime()});
 
 //----------------------------Collect----------------------------------
 
